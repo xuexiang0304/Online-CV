@@ -1,21 +1,19 @@
 $(window).on('scroll',function(){
 	$('.timeline>li').each(function(){
-		var flag = false;
-		if($(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && !flag) {
+		if($(this).offset().top <= $(window).scrollTop() + $(window).height()*0.75) {
 			$(this).find('.timeline-badge>span').addClass('fa-bullseye');
-			flag = true;
-		}else if($(this).offset().top >= $(window).height()*0.75-$(window).scrollTop()) {
-			if($(this).find('.timeline-badge>span').hasClass('fa-bullseye'))
-				$(this).find('.timeline-badge>span').removeClass('fa-bullseye');
+			$('.timeline>li').not($(this)).find('.timeline-badge>span').removeClass('fa-bullseye');
 		}			
 	});
 
-	if($('#skills').offset().top <= $(window).scrollTop()+$(window).height()*0.75){
+    var flag_skill = $('#skills').attr('flag');
+	if($('#skills').offset().top <= $(window).scrollTop()+$(window).height()*0.75 && !flag_skill){
 		startDraw();
+		$('#skills').attr('flag', true);
 	}
 });
 
-function DrawCircle (x, y, percentage, backColor, proColor, fontColor, id){
+function DrawCircle (x, y,radius, percentage, backColor, proColor, fontColor, id){
 	var canvas = document.getElementById(id);
 	canvas.width = 120;
 	canvas.height = 120;
@@ -28,14 +26,14 @@ function DrawCircle (x, y, percentage, backColor, proColor, fontColor, id){
 
 	ctx.beginPath();
 	ctx.moveTo(x,y);
-	ctx.arc(x,y,0,Math.PI*2,false);
+	ctx.arc(x,y,radius,0,Math.PI*2,false);
 	ctx.closePath();
 	ctx.fillStyle = backColor;
 	ctx.fill();
 
 	ctx.beginPath();
 	ctx.moveTo(x,y);
-	ctx.arc(x,y,Math.PI*1.5,Math.PI * 1.5 -  Math.PI * 2 * process / 100, true);
+	ctx.arc(x,y,radius,Math.PI*1.5,Math.PI * 1.5 -  Math.PI * 2 * percentage / 100, true);
 	ctx.closePath();
 	ctx.fillStyle = proColor;
 	ctx.fill();
@@ -59,20 +57,20 @@ function DrawCircle (x, y, percentage, backColor, proColor, fontColor, id){
 	ctx.textAlign = 'center';
 	ctx.textBaseline = 'middle';
 	ctx.moveTo(x, y);
-	ctx.fillText(process+"%", x, y);
+	ctx.fillText(percentage+"%", x, y);
 
 }
 
 var bfb = 0;
 var time = 0;
 function startDraw(){
-	DrawCircle(60, 60, 50, '#eee','#e74c3c','#e74c3c', 'skill_1' );
-	DrawCircle(60, 60, 50, '#eee','#e74c3c','#e74c3c', 'skill_1' );
-	DrawCircle(60, 60, 50, '#eee','#e74c3c','#e74c3c', 'skill_1' );
-	DrawCircle(60, 60, 50, '#eee','#e74c3c','#e74c3c', 'skill_1' );
-	DrawCircle(60, 60, 50, '#eee','#e74c3c','#e74c3c', 'skill_1' );
+	DrawCircle(60, 60, 50, bfb, '#eee','#e74c3c','#e74c3c', 'skill_1' );
+	DrawCircle(60, 60, 50, bfb,'#eee','#e74c3c','#e74c3c', 'skill_2' );
+	DrawCircle(60, 60, 50, bfb,'#eee','#e74c3c','#e74c3c', 'skill_3' );
+	DrawCircle(60, 60, 50, bfb,'#eee','#e74c3c','#e74c3c', 'skill_4' );
+	DrawCircle(60, 60, 50, bfb,'#eee','#e74c3c','#e74c3c', 'skill_5' );
 
-		t = setTimeout(startDraw,5);
+	t = setTimeout(startDraw,5);
 	if(bfb>=35){
 		clearTimeout(t);
 		bfb=0;

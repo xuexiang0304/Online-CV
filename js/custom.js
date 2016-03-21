@@ -13,7 +13,7 @@ $(window).on('scroll',function(){
 	}
 });
 
-function DrawCircle (x, y,radius, percentage, backColor, proColor, fontColor, id){
+function DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor, id){
 	var canvas = document.getElementById(id);
 	canvas.width = 120;
 	canvas.height = 120;
@@ -33,21 +33,21 @@ function DrawCircle (x, y,radius, percentage, backColor, proColor, fontColor, id
 
 	ctx.beginPath();
 	ctx.moveTo(x,y);
-	ctx.arc(x,y,radius,Math.PI*1.5,Math.PI * 1.5 -  Math.PI * 2 * percentage / 100, true);
+	ctx.arc(x,y,radius,Math.PI*1.5, Math.PI * 1.5 -  Math.PI * 2 * percentage / 100, true);
 	ctx.closePath();
 	ctx.fillStyle = proColor;
 	ctx.fill();
 
 	ctx.beginPath();
 	ctx.moveTo(x,y);
-	ctx.arc(x,y,radius - (radius * 0.26), 0, Math.PI * 2, true);
+	ctx.arc(x,y,radius - (radius * 0.15), 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.fillStyle = 'rgba(255,255,255,1)';
 	ctx.fill();
 
 	ctx.beginPath();
 	ctx.moveTo(x,y);
-	ctx.arc(x,y,radius - (radius * 0.30), 0, Math.PI * 2, true);
+	ctx.arc(x,y,radius - (radius * 0.25), 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.strokeStyle = backColor;
 	ctx.stroke();
@@ -59,25 +59,27 @@ function DrawCircle (x, y,radius, percentage, backColor, proColor, fontColor, id
 	ctx.moveTo(x, y);
 	ctx.fillText(percentage+"%", x, y);
 
-}
+    percentage+=1;
 
-var bfb = 0;
-var time = 0;
-function startDraw(){
-	DrawCircle(60, 60, 50, bfb, '#eee','#e74c3c','#e74c3c', 'skill_1' );
-	DrawCircle(60, 60, 50, bfb,'#eee','#e74c3c','#e74c3c', 'skill_2' );
-	DrawCircle(60, 60, 50, bfb,'#eee','#e74c3c','#e74c3c', 'skill_3' );
-	DrawCircle(60, 60, 50, bfb,'#eee','#e74c3c','#e74c3c', 'skill_4' );
-	DrawCircle(60, 60, 50, bfb,'#eee','#e74c3c','#e74c3c', 'skill_5' );
-
-	t = setTimeout(startDraw,5);
-	if(bfb>=35){
-		clearTimeout(t);
-		bfb=0;
-		return;
+	if(percentage <= max){
+		// clearTimeout(t);
+		// initVl=0;
+		setTimeout(function(){
+			DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor, id);
+		},5);
 	}
-	bfb+=1;
+	
+
 }
+
+function startDraw(){
+	DrawCircle(60, 60, 50, 55, 0,'#eee','#e74c3c','#e74c3c', 'skill_1' );
+	DrawCircle(60, 60, 50, 60, 0,'#eee','#e74c3c','#e74c3c', 'skill_2' );
+	DrawCircle(60, 60, 50, 80, 0,'#eee','#e74c3c','#e74c3c', 'skill_3' );
+	DrawCircle(60, 60, 50, 70, 0,'#eee','#e74c3c','#e74c3c', 'skill_4' );
+	DrawCircle(60, 60, 50, 60, 0,'#eee','#e74c3c','#e74c3c', 'skill_5' );	
+}
+
 
 
 

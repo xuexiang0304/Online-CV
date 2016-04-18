@@ -2,28 +2,36 @@
 	border-left: 8px solid #F2910A;
 }
 
-#about h2, #resume h2, #skills h2{
+#about h2, #resume h2, #skills h2,
+#experience h2{
 	font-weight: bold;
 }
 
 #about .heading>*{
  padding-left: 20px;
 }
-#about, #skills{
+#about, #skills, #experience{
 	padding: 70px 0;
 }
+#about .profile{
+    text-align: center;
+}
 #about img{
+    margin: 0 auto;
+    max-width: 80%;
 	padding: 0;
 	border: 12px solid #F2910A;
 }
-#resume{
+#resume, #experience{
     background-color: #eeeeee;
 }
-#resume .heading, #skills .heading{
+#resume .heading, #skills .heading,
+#experience .heading{
 	border-left: 8px solid #E94822;
 }
 
-#resume .education_container{
+#resume .education_container,
+#experience .experience_container{
 	clear:both;
 }
 
@@ -31,7 +39,8 @@
     color: #ee4b28;
 }
 
-#resume .timeline > li {
+#resume .timeline > li,
+#experience .timeline > li {
     padding-bottom: 80px;
 }
 /*Time Line*/
@@ -78,7 +87,7 @@
         }
 
         .timeline > li > .timeline-panel {
-            width: 26%;
+            width: 24%;
             background-color: #FAD662;
             float: left;
             border: 1px solid #d4d4d4;
@@ -198,11 +207,245 @@
 #skills .circle-panel {
     width: 19%;
     display: inline-block;
+    text-align: center;
 }
 }
 
 #skills .circles {
-    
+    text-align: center;
+}
+
+#skills .skill_name{
+    font-size: 18px;
+}
+
+@media only Screen and (min-width: 1000px){
+    #experience .timeline-badge{
+        width: 50px;
+        height: 50px;
+        /* Force Hardware Acceleration in WebKit */
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+    }
+
+    #experience .timeline-badge.is-hidden {
+        visibility: hidden;
+    }
+    #experience .timeline-badge.bounce-in {
+        visibility: visible;
+        -webkit-animation: cd-bounce-1 0.6s;
+        -moz-animation: cd-bounce-1 0.6s;
+        animation: cd-bounce-1 0.6s;
+    }
+}
+@-webkit-keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+@-moz-keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    -moz-transform: scale(0.5);
+  }
+
+  60% {
+    opacity: 1;
+    -moz-transform: scale(1.2);
+  }
+
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+@keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@media only Screen and (min-width: 1000px){
+    /*#experience .timeline-panel{
+
+    }*/
+    #experience .timeline-panel.is-hidden {
+        visibility: hidden;
+    }
+    #experience .timeline-panel.bounce-in {
+        visibility: visible;
+        -webkit-animation: cd-bounce-2-inverse 0.6s;
+        -moz-animation: cd-bounce-2-inverse 0.6s;
+        animation: cd-bounce-2-inverse 0.6s;
+    }
+}
+@-webkit-keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(100px);
+  }
+
+  60% {
+    opacity: 1;
+    -moz-transform: translateX(-20px);
+  }
+
+  100% {
+    -moz-transform: translateX(0);
+  }
+}
+@keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+    -moz-transform: translateX(100px);
+    -ms-transform: translateX(100px);
+    -o-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    -o-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@media only Screen and (min-width: 1000px){
+    /*#experience .timeline-panel{
+
+    }*/
+    #experience .timeline-content.is-hidden {
+        visibility: hidden;
+    }
+    #experience .timeline-content.bounce-in {
+        visibility: visible;
+        -webkit-animation: cd-bounce-2 0.6s;
+        -moz-animation: cd-bounce-2 0.6s;
+        animation: cd-bounce-2 0.6s;
+    }
+}
+@-webkit-keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-100px);
+  }
+
+  60% {
+    opacity: 1;
+    -moz-transform: translateX(20px);
+  }
+
+  100% {
+    -moz-transform: translateX(0);
+  }
+}
+@keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    -o-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+#contact .heading{
+    margin-bottom: 5%;
+}
+
+#contact .section-heading{
+    font-weight: bold;
+    color: #f05f40;
 }
 
 @media (max-width: 767px) {
@@ -211,9 +454,10 @@
     }
 
     ul.timeline > li > .timeline-panel {
-        width: calc(100% - 90px);
-        width: -moz-calc(100% - 90px);
-        width: -webkit-calc(100% - 90px);
+        width: calc(90% - 90px);
+        width: -moz-calc(90% - 90px);
+        width: -webkit-calc(90% - 90px);
+        margin-right: 8%;
     }
 
     ul.timeline > li > .timeline-badge {
@@ -239,4 +483,7 @@
             left: -14px;
             right: auto;
         }
+    #skills .circle-panel {
+        width: 100%;
+    }
 }

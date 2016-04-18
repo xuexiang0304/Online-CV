@@ -1,20 +1,46 @@
-$(window).on('scroll',function(){
-	$('.timeline>li').each(function(){
-		if($(this).offset().top <= $(window).scrollTop() + $(window).height()*0.75) {
-			$(this).find('.timeline-badge>span').addClass('fa-bullseye');
-			$('.timeline>li').not($(this)).find('.timeline-badge>span').removeClass('fa-bullseye');
-		}			
-	});
+jQuery(document).ready(function($){
+    // Scroll event for experience part
+	var timelineBlocks = $('.timeline>li'),
+	offset = 0.8;
 
-    var flag_skill = $('#skills').attr('flag');
-	if($('#skills').offset().top <= $(window).scrollTop()+$(window).height()*0.75 && !flag_skill){
-		startDraw();
-		$('#skills').attr('flag', true);
-	}
+	//hide timeline blocks which are outside the viewport
+	hideBlocks(timelineBlocks, offset);
+
+	$(window).on('scroll',function(){
+		// Scroll event for resume part
+		$('#resume .timeline>li').each(function(){
+			if($(this).offset().top <= $(window).scrollTop() + $(window).height()*0.75) {
+				$(this).find('.timeline-badge>span').addClass('fa-bullseye');
+				$('.timeline>li').not($(this)).find('.timeline-badge>span').removeClass('fa-bullseye');
+			}			
+		});
+
+		// Scroll event for skills part
+		var flag_skill = $('#skills').attr('flag');
+		if($('#skills').offset().top <= $(window).scrollTop()+$(window).height()*0.75 && !flag_skill){
+			startDraw();
+			$('#skills').attr('flag', true);
+		}
+
+		// Scroll event for experience part
+		(!window.requestAnimationFrame) 
+				? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
+				: window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
+	});
 });
 
 function DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor, id){
 	var canvas = document.getElementById(id);
+	// if(screen.width <= 600){
+	// 	canvas.width = screen.width*0.8;
+	// 	canvas.height = screen.width*0.8;
+	// }else if(screen <= 1200){
+	// 	canvas.width = screen.width*0.33;
+	// 	canvas.height = screen.width*0.33;
+	// }else{
+	// 	canvas.width = screen.width*0.19;
+	// 	canvas.height = screen.width*0.19;
+	// }
 	canvas.width = 120;
 	canvas.height = 120;
 
@@ -67,9 +93,7 @@ function DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor
 		setTimeout(function(){
 			DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor, id);
 		},5);
-	}
-	
-
+	}	
 }
 
 function startDraw(){
@@ -80,10 +104,16 @@ function startDraw(){
 	DrawCircle(60, 60, 50, 60, 0,'#eee','#e74c3c','#e74c3c', 'skill_5' );	
 }
 
+function hideBlocks(blocks, offset) {
+	blocks.each(function(){
+		( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset ) && $(this).find('.timeline-badge, .timeline-content, .timeline-panel').addClass('is-hidden');
+	});
+}
 
-
-
-
-
-
+function showBlocks(blocks, offset) {
+	blocks.each(function(){
+		( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.timeline-badge').hasClass('is-hidden') ) && $(this).find('.timeline-badge, .timeline-content, .timeline-panel').removeClass('is-hidden').addClass('bounce-in');
+		( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset && $(this).find('.timeline-badge').hasClass('bounce-in') ) && $(this).find('.timeline-badge, .timeline-content, .timeline-panel').removeClass('bounce-in').addClass('is-hidden');
+	});
+}
 

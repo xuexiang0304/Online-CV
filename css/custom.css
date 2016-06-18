@@ -1,5 +1,22 @@
-#about .heading{
-	border-left: 8px solid #F2910A;
+@font-face {
+    font-family: Zirkel-Regular;
+    src: url('../fonts/Zirkel Regular.ttf');
+}
+@font-face {
+    font-family: Zirkel-Regular;
+    src: url('../fonts/Zirkel Bold.ttf');
+    font-weight: bold;
+}
+body{
+    font-family: Zirkel-Regular;
+    text-align: justify;
+    overflow-x: hidden;
+}
+.heading {
+    margin-bottom: 3%;
+}
+#about{
+    background-color: #E4F9F5;
 }
 
 #about h2, #resume h2, #skills h2,
@@ -7,10 +24,10 @@
 	font-weight: bold;
 }
 
-#about .heading>*{
+.heading>*{
  padding-left: 20px;
 }
-#about, #skills, #experience{
+#about, #skills, #resume, #experience{
 	padding: 70px 0;
 }
 #about .profile{
@@ -18,31 +35,61 @@
 }
 #about img{
     margin: 0 auto;
-    max-width: 80%;
+    max-width: 60%;
 	padding: 0;
-	border: 12px solid #F2910A;
+	border: 8px solid #AECCC6;
+}
+#about .summary>h4{
+    font-family: Zirkel-Regular;
+    font-weight: bold;
+    font-style: italic;
+    color: grey;
+    /*text-align: center;*/
+}
+#about .summary>h4:before,
+#about .summary>h4:after{
+    content: '"';
+    font-size: 20px;
+}
+/*#about .summary>h4:after{
+    content: '”';
+    font-size: 24px;
+}*/
+#about .summary{
+    width: 95%;
+    padding-left: 22%;
+    text-align: justify;
 }
 #resume, #experience{
-    background-color: #eeeeee;
+    background-color: #fff;
 }
-#resume .heading, #skills .heading,
+#about .heading, #resume .heading, #skills .heading,
 #experience .heading{
-	border-left: 8px solid #E94822;
+	border-left: 8px solid #78DEC9;
 }
 
 #resume .education_container,
 #experience .experience_container{
 	clear:both;
 }
-
-#resume .timeline-content .timeline-title {
-    color: #ee4b28;
+#resume .timeline-content > .timeline-heading {
+    display: inline-block;
+    padding-bottom: 10px;
+}
+#resume .timeline-content > .timeline-heading > img{
+    width: 70px;
+    margin-right: 10px;
+    float: left;   
 }
 
-#resume .timeline > li,
+.timeline-content .timeline-title {
+    color: #78DEC9;
+}
+
+/*#resume .timeline > li,
 #experience .timeline > li {
     padding-bottom: 80px;
-}
+}*/
 /*Time Line*/
 .timeline {
     list-style: none;
@@ -56,13 +103,13 @@
         position: absolute;
         content: " ";
         width: 1px;
-        background-color: #ee4b28;
+        background-color: #AECCC6;
         left: 30%;
         margin-left: -1.5px;
     }
 
     .timeline > li {
-        margin-bottom: 20px;
+        margin-bottom: 80px;
         position: relative;
     }
 
@@ -88,9 +135,9 @@
 
         .timeline > li > .timeline-panel {
             width: 24%;
-            background-color: #FAD662;
+            background-color: #FEFAEC;
             float: left;
-            border: 1px solid #d4d4d4;
+            border: 1px solid #F7F6DE;
             border-radius: 2px;
             padding: 20px;
             position: relative;
@@ -104,8 +151,8 @@
                 right: -15px;
                 display: inline-block;
                 border-top: 15px solid transparent;
-                border-left: 15px solid #ccc;
-                border-right: 0 solid #ccc;
+                border-left: 15px solid #eee;
+                border-right: 0 solid #eee;
                 border-bottom: 15px solid transparent;
                 content: " ";
             }
@@ -116,8 +163,8 @@
                 right: -14px;
                 display: inline-block;
                 border-top: 14px solid transparent;
-                border-left: 14px solid #FAD662;
-                border-right: 0 solid #FAD662;
+                border-left: 14px solid #FEFAEC;
+                border-right: 0 solid #FEFAEC;
                 border-bottom: 14px solid transparent;
                 content: " ";
             }
@@ -134,7 +181,7 @@
             margin-right: 5%;
             background-color: #fff;
             float: right;
-            border: 1px solid #d4d4d4;
+            border: 1px solid #ECFFFB;
             border-radius: 2px;
             padding: 30px;
             position: relative;
@@ -143,11 +190,11 @@
         }
 
         .timeline > li > .timeline-badge {
-            color: #ee4b28;
+            color: #A9EEE6;
             width: 50px;
             height: 50px;
-            border: 3px solid #ee4b28;
-            line-height: 44px;
+            border: 3px solid #AECCC6;
+            line-height: 52px;
             font-size: 2.5em;
             text-align: center;
             position: absolute;
@@ -162,14 +209,17 @@
             border-bottom-left-radius: 50%;
         }
 
-        .timeline > li.timeline-inverted > .timeline-panel {
+/*        .timeline > li.timeline-inverted > .timeline-panel {
             float: right;
+            margin-right: 10%;
         }
 
             .timeline > li.timeline-inverted > .timeline-panel:before {
                 border-left-width: 0;
                 border-right-width: 15px;
                 left: -15px;
+                border-left:  0 solid #ccc !important;
+                border-right: 15px solid #ccc !important;
                 right: auto;
             }
 
@@ -177,8 +227,14 @@
                 border-left-width: 0;
                 border-right-width: 14px;
                 left: -14px;
+                border-left: 0 solid #F8D098 !important;
+                border-right: 15px solid #F8D098 !important;
                 right: auto;
             }
+
+        #experience .timeline > li.timeline-inverted > .timeline-content {
+            float: left;           
+        }*/
 
 .timeline-badge.default {
     background-color: white !important;
@@ -198,11 +254,18 @@
 .timeline-body > p,
 .timeline-body > ul {
     margin-bottom: 0;
+    color: #393E46;
 }
 
     .timeline-body > p + p {
         margin-top: 5px;
     }
+    .timeline-body > p > b {
+        color: black;
+    }
+#skills {
+    background-color: #FFFBE0;
+}
 
 #skills .circle-panel {
     width: 19%;
@@ -217,6 +280,45 @@
 
 #skills .skill_name{
     font-size: 18px;
+    font-weight: bold;
+}
+#skills .other_skills>.sub_heading{
+    padding-left: 20px;
+}
+
+#skills .other_skills h3{
+    font-weight: bold;
+    padding-left: 20px;
+    border-left: 8px solid #78DEC9;
+}
+
+#skills .other_skills p{
+    padding-left: 50px;
+}
+
+/*#experience .timeline:before {
+    left: 50%;
+}
+
+#experience .timeline >li> .timeline-badge {
+    left: 50%;
+}*/
+
+/*#experience .timeline > li > .timeline-content{
+    width: 45%;
+    margin-right: 0%;
+}*/
+
+#experience .timeline > li > .timeline-panel {
+    background-color: #F8D098;
+    color: white;
+   /* width: 30%;
+    margin-left: 10%;*/
+}
+
+#experience .timeline > li > .timeline-panel:after {
+    border-left: 14px solid #F8D098;
+    border-right: 0 solid #F8D098;
 }
 
 @media only Screen and (min-width: 1000px){
@@ -439,25 +541,46 @@
   }
 }
 
+#contact {
+    background-color: #464648
+}
+
+#contact p{
+    color: #fff;
+}
+
 #contact .heading{
     margin-bottom: 5%;
 }
 
 #contact .section-heading{
     font-weight: bold;
-    color: #f05f40;
+    color: #BBE9DB;
 }
 
-@media (max-width: 767px) {
+#contact .contact_logo>div {
+    width: 20%;
+    display: inline-block;
+}
+
+#contact div>a>span{
+    color: #fff;
+    font-size: 40pt;
+}
+
+@media (max-width: 767px) {    
+    .timeline-title{
+        font-size: 20px;
+    }
     ul.timeline:before {
         left: 40px;
     }
-
     ul.timeline > li > .timeline-panel {
-        width: calc(90% - 90px);
-        width: -moz-calc(90% - 90px);
-        width: -webkit-calc(90% - 90px);
+        width: calc(90% - 80px);
+        width: -moz-calc(90% - 80px);
+        width: -webkit-calc(90% - 80px);
         margin-right: 8%;
+        margin-bottom: 8%;
     }
 
     ul.timeline > li > .timeline-badge {
@@ -483,7 +606,41 @@
             left: -14px;
             right: auto;
         }
-    #skills .circle-panel {
-        width: 100%;
+    .timeline > li > .timeline-content{
+        width: 80%;
+        text-align: left;
+        padding: 15px;
     }
+    #about, #skills, #resume, #experience{
+        padding: 40px 0;
+    }
+    ul.circles{
+        padding-left: 0px;
+    }
+    .heading>*{
+        padding-left: 0px;
+        text-align: left;
+    }
+    #about img{
+        margin-bottom: 20px;
+    }
+    #about .summary{
+        width: 90%;
+        margin: 0 auto;
+        padding-left: 0px;
+    }
+    #experience .timeline > li > .timeline-panel:after {
+        border-left: 0 solid #F8D098;
+        border-right: 14px solid #F8D098;
+    }
+
+    #skills .circle-panel {
+        width: 45%;
+    }
+    #skills .other_skills p {
+        padding-left: 20px;
+        padding-right: 15px;
+        text-align: left;
+    }
+
 }

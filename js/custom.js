@@ -17,7 +17,7 @@ jQuery(document).ready(function($){
 
 		// Scroll event for skills part
 		var flag_skill = $('#skills').attr('flag');
-		if($('#skills').offset().top <= $(window).scrollTop()+$(window).height()*0.75 && !flag_skill){
+		if($('#skills').offset().top <= $(window).scrollTop()+$(window).height()*0.6 && !flag_skill){
 			startDraw();
 			$('#skills').attr('flag', true);
 		}
@@ -31,18 +31,13 @@ jQuery(document).ready(function($){
 
 function DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor, id){
 	var canvas = document.getElementById(id);
-	// if(screen.width <= 600){
-	// 	canvas.width = screen.width*0.8;
-	// 	canvas.height = screen.width*0.8;
-	// }else if(screen <= 1200){
-	// 	canvas.width = screen.width*0.33;
-	// 	canvas.height = screen.width*0.33;
-	// }else{
-	// 	canvas.width = screen.width*0.19;
-	// 	canvas.height = screen.width*0.19;
-	// }
-	canvas.width = 120;
-	canvas.height = 120;
+	if(screen.width <= 900){
+		canvas.width = 120;
+		canvas.height = 120;
+	}else{
+		canvas.width = 140;
+		canvas.height = 140;
+	}
 
 	if (canvas.getContext) {
 		var ctx = canvas.getContext('2d');
@@ -88,8 +83,6 @@ function DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor
     percentage+=1;
 
 	if(percentage <= max){
-		// clearTimeout(t);
-		// initVl=0;
 		setTimeout(function(){
 			DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor, id);
 		},5);
@@ -97,11 +90,19 @@ function DrawCircle (x, y,radius,max, percentage, backColor, proColor, fontColor
 }
 
 function startDraw(){
-	DrawCircle(60, 60, 50, 55, 0,'#eee','#e74c3c','#e74c3c', 'skill_1' );
-	DrawCircle(60, 60, 50, 60, 0,'#eee','#e74c3c','#e74c3c', 'skill_2' );
-	DrawCircle(60, 60, 50, 80, 0,'#eee','#e74c3c','#e74c3c', 'skill_3' );
-	DrawCircle(60, 60, 50, 70, 0,'#eee','#e74c3c','#e74c3c', 'skill_4' );
-	DrawCircle(60, 60, 50, 60, 0,'#eee','#e74c3c','#e74c3c', 'skill_5' );	
+
+	if(screen.width <= 900){
+		var X = 60;
+		var Y = 60;
+	}else{
+		var X = 70;
+		var Y = 70;
+	}
+	DrawCircle(X, Y, 60, 80, 0,'#eee','#78DEC9','#3EC8AC', 'skill_1' );
+	DrawCircle(X, Y, 60, 70, 0,'#eee','#78DEC9','#3EC8AC', 'skill_2' );
+	DrawCircle(X, Y, 60, 65, 0,'#eee','#78DEC9','#3EC8AC', 'skill_3' );
+	DrawCircle(X, Y, 60, 80, 0,'#eee','#78DEC9','#3EC8AC', 'skill_4' );
+	DrawCircle(X, Y, 60, 75, 0,'#eee','#78DEC9','#3EC8AC', 'skill_5' );	
 }
 
 function hideBlocks(blocks, offset) {

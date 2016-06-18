@@ -1,3 +1,4 @@
+// author: Xiang Xue
 jQuery(document).ready(function($){
     // Scroll event for experience part
 	var timelineBlocks = $('.timeline>li'),

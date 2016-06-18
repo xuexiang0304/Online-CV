@@ -1,3 +1,4 @@
+/*author: Xiang Xue*/
 @font-face {
     font-family: Zirkel-Regular;
     src: url('../fonts/Zirkel Regular.ttf');
@@ -51,10 +52,6 @@ body{
     content: '"';
     font-size: 20px;
 }
-/*#about .summary>h4:after{
-    content: '”';
-    font-size: 24px;
-}*/
 #about .summary{
     width: 95%;
     padding-left: 22%;
@@ -85,11 +82,6 @@ body{
 .timeline-content .timeline-title {
     color: #78DEC9;
 }
-
-/*#resume .timeline > li,
-#experience .timeline > li {
-    padding-bottom: 80px;
-}*/
 /*Time Line*/
 .timeline {
     list-style: none;
@@ -209,33 +201,6 @@ body{
             border-bottom-left-radius: 50%;
         }
 
-/*        .timeline > li.timeline-inverted > .timeline-panel {
-            float: right;
-            margin-right: 10%;
-        }
-
-            .timeline > li.timeline-inverted > .timeline-panel:before {
-                border-left-width: 0;
-                border-right-width: 15px;
-                left: -15px;
-                border-left:  0 solid #ccc !important;
-                border-right: 15px solid #ccc !important;
-                right: auto;
-            }
-
-            .timeline > li.timeline-inverted > .timeline-panel:after {
-                border-left-width: 0;
-                border-right-width: 14px;
-                left: -14px;
-                border-left: 0 solid #F8D098 !important;
-                border-right: 15px solid #F8D098 !important;
-                right: auto;
-            }
-
-        #experience .timeline > li.timeline-inverted > .timeline-content {
-            float: left;           
-        }*/
-
 .timeline-badge.default {
     background-color: white !important;
 }
@@ -296,24 +261,9 @@ body{
     padding-left: 50px;
 }
 
-/*#experience .timeline:before {
-    left: 50%;
-}
-
-#experience .timeline >li> .timeline-badge {
-    left: 50%;
-}*/
-
-/*#experience .timeline > li > .timeline-content{
-    width: 45%;
-    margin-right: 0%;
-}*/
-
 #experience .timeline > li > .timeline-panel {
     background-color: #F8D098;
     color: white;
-   /* width: 30%;
-    margin-left: 10%;*/
 }
 
 #experience .timeline > li > .timeline-panel:after {

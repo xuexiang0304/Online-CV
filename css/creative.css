@@ -10,10 +10,6 @@ body {
     height: 100%;
 }
 
-/*body {
-    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
-}*/
-
 hr {
     max-width: 50px;
     border-color: #BBE9DB;
@@ -51,15 +47,6 @@ p {
     line-height: 1.5;
 }
 
-/*.bg-primary {
-    background-color: #BBE9DB;
-}
-
-.bg-dark {
-    color: #fff;
-    background-color: #222;
-}*/
-
 .text-faded {
     color: rgba(255,255,255,.7);
 }
@@ -71,10 +58,6 @@ section {
 aside {
     padding: 50px 0;
 }
-
-/*.no-padding {
-    padding: 0;
-}*/
 
 .navbar-default {
     border-color: rgba(34,34,34,.05);

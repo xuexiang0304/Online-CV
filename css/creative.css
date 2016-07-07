@@ -226,8 +226,6 @@ header .header-content .header-content-inner p {
     margin-top: 0;
 }
 
-@media(min-width:992px) {
-
 .text-primary {
     color: #BBE9DB;
 }
